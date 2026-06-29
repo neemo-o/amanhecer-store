@@ -31,6 +31,7 @@ export default function App() {
           <div className="border-r border-black/10 h-full" />
           <div className="border-r border-black/10 h-full" />
           <div className="border-r border-black/10 h-full" />
+          
         </div>
       </div>
 

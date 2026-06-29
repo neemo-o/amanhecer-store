@@ -40,13 +40,12 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo Brand */}
-          <a href="#inicio" className="group flex flex-col items-center select-none">
-            <span className={`font-display text-lg md:text-2xl font-bold tracking-[0.25em] transition-colors duration-300 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} group-hover:text-[#E8A020]`}>
-              AMANHECER
-            </span>
-            <span className="font-poppins text-[10px] md:text-xs tracking-[0.4em] text-[#E8A020] -mt-1 group-hover:text-[#1A1A1A] transition-colors duration-300">
-              STORE
-            </span>
+          <a href="#inicio" className="flex items-center space-x-2 select-none">
+            <img src={isScrolled ? "/logos/simbolo-logo-preto.png" : "/logos/simbolo-logo-branco.png"} alt="Amanhecer Store" className="h-14 transition-opacity duration-300" />
+            <div className="flex flex-col">
+              <span className={`font-display text-lg md:text-2xl font-bold tracking-[0.25em] transition-colors duration-300 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} group-hover:text-[#E8A020]`}>AMANHECER</span>
+              <span className="font-poppins text-[10px] md:text-xs tracking-[0.4em] text-[#E8A020] -mt-1 group-hover:text-[#1A1A1A] transition-colors duration-300">STORE</span>
+            </div>
           </a>
 
           {/* Desktop Links */}
@@ -111,13 +110,12 @@ export default function Navbar() {
             >
               <div>
                 <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-6">
-                  <div className="flex flex-col">
-                    <span className="font-display text-lg font-bold tracking-[0.2em] text-[#1A1A1A]">
-                      AMANHECER
-                    </span>
-                    <span className="font-poppins text-[10px] tracking-[0.4em] text-[#E8A020]">
-                      STORE
-                    </span>
+                  <div className="flex items-center space-x-2">
+                    <img src={isScrolled ? "/logos/simbolo-logo-preto.png" : "/logos/simbolo-logo-branco.png"} alt="Amanhecer Store" className="h-6" />
+                    <div className="flex flex-col">
+                      <span className="font-display text-lg font-bold tracking-[0.2em] text-[#1A1A1A]">AMANHECER</span>
+                      <span className="font-poppins text-[10px] tracking-[0.4em] text-[#E8A020]">STORE</span>
+                    </div>
                   </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}

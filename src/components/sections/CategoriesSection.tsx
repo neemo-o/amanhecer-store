@@ -21,81 +21,9 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
         const data = await res.json();
         setProducts(data);
       } catch (err) {
-        console.error("Failed to fetch products API, loading local backup data...", err);
-        // Robust fallback/backup in case of offline states directly matching server seeds
-        const localBackup: Product[] = [
-          {
-            id: "anel-aurora-ouro",
-            name: "Anel Aurora Ouro 18k",
-            category: "aneis",
-            categoryLabel: "Anéis",
-            images: ["/produtos/aneis/anel-aurora-ouro/foto1.svg"],
-            description: "Anel de ouro amarelo 18k com acabamento polido, esculpido à mão para refletir o esplendor do amanhecer.",
-            price: "R$ 4.800",
-            details: ["Ouro Amarelo 18k", "Largura: 4mm", "Acabamento Alto Brilho", "Design Anatômico"]
-          },
-          {
-            id: "anel-solitaire-diamante",
-            name: "Anel Solitaire Diamante Celeste",
-            category: "aneis",
-            categoryLabel: "Anéis",
-            images: ["/produtos/aneis/anel-solitaire-diamante/foto1.svg"],
-            description: "O brilho lendário de um diamante central de 0.8 quilates, cravado em uma delicada coroa de ouro branco.",
-            price: "R$ 14.200",
-            details: ["Ouro Branco 18k", "Diamante Central 0.8ct", "Pureza VVS1", "Lapidação Brilhante"]
-          },
-          {
-            id: "gargantilha-amanhecer",
-            name: "Gargantilha Amanhecer Dourada",
-            category: "colares",
-            categoryLabel: "Colares",
-            images: ["/produtos/colares/gargantilha-amanhecer/foto1.svg"],
-            description: "Um colar em ouro 18k com elos lapidados e um pingente de topázio imperial que capta os primeiros raios de sol.",
-            price: "R$ 8.500",
-            details: ["Ouro Amarelo 18k", "Topázio Imperial Natural", "Fecho de Alta Segurança", "Corrente de 45cm ajustável"]
-          },
-          {
-            id: "colar-noblesse-perolas",
-            name: "Colar Noblesse de Pérolas",
-            category: "colares",
-            categoryLabel: "Colares",
-            images: ["/produtos/colares/colar-noblesse-perolas/foto1.svg"],
-            description: "Clássico atemporal unindo pérolas de água salgada perfeitamente selecionadas e fecho em filigrana de ouro.",
-            price: "R$ 11.900",
-            details: ["Pérolas Akoya 7.5mm", "Fecho em Ouro Amarelo 18k", "Comprimento: 50cm", "Enfiamento com Nós de Proteção"]
-          },
-          {
-            id: "brincos-gota-esmeralda",
-            name: "Brincos Gota Esmeralda Imperial",
-            category: "brincos",
-            categoryLabel: "Brincos",
-            images: ["/produtos/brincos/brincos-gota-esmeralda/foto1.svg"],
-            description: "Brincos pendentes em ouro branco com impressionantes esmeraldas colombianas lapidadas em gota e halos de brilhantes.",
-            price: "R$ 18.500",
-            details: ["Ouro Branco 18k", "Duas Esmeraldas Colombianas de 1.2ct cada", "Halos de Microdiamantes", "Trava de Pressão Confortável"]
-          },
-          {
-            id: "bracelete-orvalho-ouro",
-            name: "Bracelete Orvalho do Amanhecer",
-            category: "pulseiras",
-            categoryLabel: "Pulseiras",
-            images: ["/produtos/pulseiras/bracelete-orvalho-ouro/foto1.svg"],
-            description: "Design rígido e elegante em ouro amarelo, adornado com detalhes gravados à mão que imitam o frescor do orvalho.",
-            price: "R$ 7.200",
-            details: ["Ouro Amarelo 18k", "Formato Oval Anatômico", "Fecho Invisível Lateral", "Largura: 6mm"]
-          },
-          {
-            id: "relogio-cronografo-lumian",
-            name: "Chronos Lumian Gold",
-            category: "relogios",
-            categoryLabel: "Relógios",
-            images: ["/produtos/relogios/relogio-cronografo-lumian/foto1.svg"],
-            description: "Obra de arte da relojoaria fina. Movimento automático suíço, caixa em aço de alto impacto com detalhes banhados a ouro 18k.",
-            price: "R$ 24.000",
-            details: ["Movimento Automático Suíço", "Caixa de 40mm banhada a Ouro 18k", "Vidro Cristal Safira Antirreflexo", "Resistência 10 ATM"]
-          }
-        ];
-        setProducts(localBackup);
+        console.error("Failed to fetch products API:", err);
+        // No local seed – show empty list or error state
+        setProducts([]);
       } finally {
         setLoading(false);
       }
@@ -103,17 +31,32 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
     loadProducts();
   }, []);
 
-  const filterTabs = [
-    { label: "Todas as Joias", value: "todos" },
-    { label: "Anéis", value: "aneis" },
-    { label: "Colares", value: "colares" },
-    { label: "Brincos", value: "brincos" },
-    { label: "Pulseiras", value: "pulseiras" },
-    { label: "Relógios", value: "relogios" }
-  ];
+  // Dynamically build filter tabs based on categories present in the fetched products
+  const filterTabs = useMemo(() => {
+    // Always include the "todos" tab
+    const baseTabs = [{ label: "Todos os acessórios", value: "todos" }];
+    const categoryMap: Record<string, string> = {
+      aneis: "Anéis",
+      colares: "Colares",
+      brincos: "Brincos",
+      pulseiras: "Pulseiras",
+      relogios: "Relógios",
+    };
+    // Determine which categories exist in the product list
+    const presentCategories = new Set(products.map((p) => p.category));
+    for (const [cat, label] of Object.entries(categoryMap)) {
+      if (presentCategories.has(cat)) {
+        baseTabs.push({ label, value: cat });
+      }
+    }
+    return baseTabs;
+  }, [products]);
 
   return (
-    <section id="categorias" className="relative bg-[#FDF8F0] py-24 md:py-32 scroll-mt-20">
+    <section
+      id="categorias"
+      className="relative bg-[#FDF8F0] py-24 md:py-32 scroll-mt-20"
+    >
       {/* Decorative vertical coordinates overlay */}
       <div className="absolute left-[5%] top-1/4 h-72 w-[1px] bg-gradient-to-b from-[#E8A020]/20 via-transparent to-transparent pointer-events-none" />
 
@@ -128,10 +71,10 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
           >
             <ShoppingBag className="w-3.5 h-3.5 text-[#E8A020]" />
             <span className="font-poppins text-sm tracking-widest text-[#E8A020] uppercase font-semibold">
-              Catálogo de Peças Únicas
+              Catálogo de Acessórios
             </span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -139,17 +82,21 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
             transition={{ duration: 0.6 }}
             className="font-display text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] tracking-tight leading-tight"
           >
-            Nossas <span className="font-serif italic font-light text-[#E8A020]">Coleções</span>
+            Nossos{" "}
+            <span className="font-serif italic font-light text-[#E8A020]">
+              Produtos
+            </span>
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif italic text-sm text-[#6B6B6B] max-w-xl mx-auto"
+            className="font-serif italic text-xl text-[#6B6B6B] max-w-xl mx-auto"
           >
-            Navegue pelo nosso mostruário de designs autorais. Cada peça é uma promessa de resplendor e elegância eterna.
+            Descubra peças e produtos que unem beleza, qualidade e sofisticação
+            para todas as ocasiões.
           </motion.p>
         </div>
 
@@ -162,9 +109,9 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
                 key={tab.value}
                 onClick={() => setSelectedFilter(tab.value)}
                 className={`relative px-4 sm:px-6 py-2.5 text-xs sm:text-sm tracking-widest uppercase rounded-sm transition-all duration-300 select-none ${
-                    isActive
-                      ? "text-black font-semibold"
-                      : "text-[#6B6B6B] hover:text-[#1A1A1A]"
+                  isActive
+                    ? "text-black font-semibold"
+                    : "text-[#6B6B6B] hover:text-[#1A1A1A]"
                 }`}
               >
                 {/* Framer motion active fill effect overlay */}

@@ -5,24 +5,28 @@ export default function BrandSection() {
   const pillars = [
     {
       icon: Gem,
-      title: "Exclusividade Meticulosa",
-      description: "Nossas coleções contam com peças de tiragem estritamente limitada, garantindo um design verdadeiramente único e raridade absoluta para quem as veste."
+      title: "Curadoria Especial",
+      description:
+        "Selecionamos acessórios, folheados e maquiagens que unem estilo, qualidade e as principais tendências para compor sua rotina e ocasiões especiais.",
     },
     {
       icon: Star,
-      title: "Elegância Atemporal",
-      description: "Prezamos pelo refinamento minimalista moderno, criando designs que dialogam livremente com o passado e o futuro, transcendendo modismos passageiros."
+      title: "Elegância em Cada Detalhe",
+      description:
+        "Nossa coleção reúne peças versáteis e atemporais, pensadas para valorizar seu estilo com sofisticação e leveza.",
     },
     {
       icon: Shield,
-      title: "Qualidade Soberana",
-      description: "Utilizamos exclusivamente metais nobres certificados com pureza extrema (Ouro 18k e Platina 950) fundidos a gemas minadas de forma ética e sustentável."
+      title: "Qualidade e Confiança",
+      description:
+        "Trabalhamos com produtos cuidadosamente escolhidos, priorizando qualidade, acabamento e beleza para oferecer a melhor experiência.",
     },
     {
       icon: Award,
-      title: "Alta Orfebraria",
-      description: "Cada curva e encaixe de nossas joias é trabalhado sob lentes microscópicas por mestres artesãos tradicionais, unindo paixão secular e precisão técnica."
-    }
+      title: "Estilo que Inspira",
+      description:
+        "Cada item é selecionado para acompanhar diferentes momentos, permitindo que você expresse sua personalidade com elegância e autenticidade.",
+    },
   ];
 
   const containerVariants = {
@@ -41,12 +45,15 @@ export default function BrandSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: "easeOut" }
+      transition: { duration: 0.7 }
     }
   };
 
   return (
-    <section id="sobre" className="relative bg-[#FDF8F0] py-24 md:py-36 overflow-hidden">
+    <section
+      id="sobre"
+      className="relative bg-[#FDF8F0] py-24 md:py-36 overflow-hidden"
+    >
       {/* Abstract light gold glow backgound decor */}
       <div className="absolute right-[10%] top-[20%] w-[350px] h-[350px] rounded-full bg-[#E8A020]/5 blur-[120px] pointer-events-none" />
       <div className="absolute left-[5%] bottom-[10%] w-[400px] h-[400px] rounded-full bg-black/[0.02] blur-[130px] pointer-events-none" />
@@ -68,11 +75,13 @@ export default function BrandSection() {
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[#1A1A1A] tracking-tight leading-tight">
                 O brilho de um <br />
-                <span className="font-serif italic font-light text-[#E8A020]">novo amanhecer.</span>
+                <span className="font-serif italic font-light text-[#E8A020]">
+                  novo amanhecer.
+                </span>
               </h2>
             </motion.div>
           </div>
-          
+
           <div className="lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -81,7 +90,10 @@ export default function BrandSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif italic text-lg sm:text-xl text-neutral-800 leading-relaxed font-light mb-6"
             >
-              "Joias são mais do que ornamentos; são amuletos que guardam nossas histórias, carregam nossa luz e dão forma eterna ao invisível."
+              "A beleza está nos detalhes que expressam quem você é. Acessórios
+              e maquiagens vão além de complementar o visual: realçam sua
+              personalidade, elevam sua autoestima e acompanham seus momentos
+              mais especiais."
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -90,7 +102,12 @@ export default function BrandSection() {
               transition={{ duration: 0.8, delay: 0.35 }}
               className="font-sans text-sm text-neutral-600 leading-relaxed font-light"
             >
-              Nascida com o propósito de harmonizar o requinte clássico da alta joalheria internacional à leveza e frescor contemporâneos, a Amanhecer Store esculpe obras de arte com curadoria primorosa. Cada peça é pensada para realçar discretamente seu brilho pessoal, captando memórias em metais eternos.
+              A Amanhecer Store nasceu com o propósito de oferecer acessórios,
+              folheados e maquiagens cuidadosamente selecionados, unindo
+              elegância, qualidade e tendências para o dia a dia e ocasiões
+              especiais. Cada item é escolhido para valorizar sua beleza e
+              permitir que você expresse seu estilo com confiança e
+              autenticidade.
             </motion.p>
           </div>
         </div>

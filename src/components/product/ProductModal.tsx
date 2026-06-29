@@ -25,8 +25,8 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
   if (!product) return null;
 
   // Elegantly composed message for WhatsApp concierge service
-  const waMessage = `Olá! Gostaria de falar com uma consultora da Amanhecer Store sobre a joia exclusiva: *${product.name}* (Ref: ${product.id}).`;
-  const waUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(waMessage)}`;
+  const waMessage = `Olá! Gostaria de falar com uma consultora da Amanhecer Store sobre o acessório *${product.name}*`;
+  const waUrl = `https://wa.me/554899551127?text=${encodeURIComponent(waMessage)}`;
 
   return (
     <AnimatePresence>
@@ -59,7 +59,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
           {/* Left Side: Advanced Img Gallery */}
           <div className="md:col-span-6 p-6 md:p-10 flex flex-col justify-center bg-[#FDF8F0] border-r border-[#E8E0D0] max-h-none md:max-h-[90vh] overflow-y-auto w-full">
-            <ProductGallery images={product.images} productName={product.name} />
+            <ProductGallery
+              images={product.images}
+              productName={product.name}
+            />
           </div>
 
           {/* Right Side: Product Details info */}
@@ -69,7 +72,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               <div className="space-y-2 mt-4 md:mt-2">
                 <span className="font-poppins text-sm tracking-[0.3em] text-[#E8A020] uppercase font-semibold flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                  Peça Rara Certificada
+                  Escolhido para Você
                 </span>
                 <p className="font-poppins text-sm tracking-widest text-[#E8A020] uppercase font-light">
                   {product.categoryLabel}
@@ -81,22 +84,30 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
               {/* Price display tag */}
               <div className="py-4 border-y border-[#E8E0D0]">
-                <p className="text-sm tracking-widest uppercase text-[#6B6B6B] mb-1">Preço Sugerido</p>
+                <p className="text-sm tracking-widest uppercase text-[#6B6B6B] mb-1">
+                  Preço
+                </p>
                 <span className="font-poppins text-xl font-medium tracking-wider text-[#1A1A1A]">
                   {product.price || "Sob Consulta"}
                 </span>
-                <span className="text-xs text-[#6B6B6B] font-light ml-2">( {product.price ? "Consultar parcelamento" : "Falar com consultor"} )</span>
+                <span className="text-xs text-[#6B6B6B] font-light ml-2">
+                  {" "}
+                  {product.price
+                    ? " - "
+                    : " - Falar com consultor"}{" "}
+                  
+                </span>
               </div>
 
               {/* Description */}
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <h4 className="font-sans text-sm tracking-wider uppercase text-[#E8A020] font-semibold">
                   A Essência da Peça
                 </h4>
                 <p className="font-serif italic text-sm text-[#1A1A1A] leading-relaxed font-light">
                   "{product.description}"
                 </p>
-              </div>
+              </div> */}
 
               {/* Technical Specifications */}
               {product.details && product.details.length > 0 && (
@@ -106,7 +117,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {product.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-center space-x-2 text-xs text-[#6B6B6B] font-light">
+                      <li
+                        key={idx}
+                        className="flex items-center space-x-2 text-xs text-[#6B6B6B] font-light"
+                      >
                         <Check className="w-3.5 h-3.5 text-[#E8A020] shrink-0" />
                         <span>{detail}</span>
                       </li>
@@ -128,7 +142,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 <span className="text-white">Solicitar via WhatsApp</span>
               </a>
               <p className="text-xs text-center text-[#6B6B6B] font-light">
-                Clique para iniciar um atendimento exclusivo com nossas personal jewelers no WhatsApp.
+                Clique para iniciar um atendimento exclusivo com a gente no WhatsApp.
               </p>
             </div>
           </div>

@@ -4,20 +4,25 @@ import { ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
 
 const HERO_SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1920&auto=format&fit=crop",
-    title: "A elegância que nasce com você.",
-    subtitle: "Joias selecionadas para transformar momentos em memórias eternas."
+    image:
+      "/hero/1.png",
+    title: "Seu brilho, seu estilo.",
+    subtitle: "Acessórios, folheados e maquiagens para valorizar cada momento.",
   },
   {
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop",
-    title: "O reflexo da sua raridade.",
-    subtitle: "Criações impecáveis esculpidas com a pureza dos metais nobres."
+    image:
+      "/hero/2.png",
+    title: "Beleza em cada detalhe.",
+    subtitle:
+      "Peças selecionadas para completar seu visual com elegância e sofisticação.",
   },
   {
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop",
-    title: "Sua história, eternizada.",
-    subtitle: "Sinta a sofisticação da alta joalheria em cada detalhe delicado."
-  }
+    image:
+      "/hero/3.jpeg",
+    title: "Expresse sua essência.",
+    subtitle:
+      "Encontre acessórios e maquiagens que acompanham o seu estilo em todas as ocasiões.",
+  },
 ];
 
 export default function HeroSection() {
@@ -53,7 +58,10 @@ export default function HeroSection() {
   const currentSlide = HERO_SLIDES[currentIndex];
 
   return (
-    <section id="inicio" className="relative w-full h-screen overflow-hidden bg-black flex items-center">
+    <section
+      id="inicio"
+      className="relative w-full h-screen overflow-hidden bg-black flex items-center"
+    >
       {/* Background carousel with Ken Burns zooming element */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
@@ -73,7 +81,7 @@ export default function HeroSection() {
             />
           </motion.div>
         </AnimatePresence>
-        
+
         {/* Soft elegant darkening layered overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/55 to-[#000000]/75 z-10" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent z-10" />
@@ -90,7 +98,7 @@ export default function HeroSection() {
           >
             <span className="h-[1px] w-8 bg-[#E8A020]" />
             <span className="font-poppins text-xs md:text-xs tracking-[0.4em] text-[#E8A020] uppercase font-semibold">
-              Coleção Haute Joaillerie
+              Brilhe em Todos os Momentos
             </span>
           </motion.div>
 
@@ -157,7 +165,9 @@ export default function HeroSection() {
             >
               <div
                 className={`h-1 rounded-full transition-all duration-500 ease-out ${
-                  currentIndex === idx ? "w-8 bg-[#E8A020]" : "w-2 bg-white/30 group-hover:bg-white/60"
+                  currentIndex === idx
+                    ? "w-8 bg-[#E8A020]"
+                    : "w-2 bg-white/30 group-hover:bg-white/60"
                 }`}
               />
             </button>
@@ -184,8 +194,13 @@ export default function HeroSection() {
 
       {/* Decorative vertical down signifier */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-10 z-20 hidden md:block">
-        <a href="#sobre" className="flex flex-col items-center text-white/40 hover:text-white transition-colors duration-300">
-          <span className="font-poppins text-xs tracking-[0.2em] uppercase mb-2">Deslizar</span>
+        <a
+          href="#sobre"
+          className="flex flex-col items-center text-white/40 hover:text-white transition-colors duration-300"
+        >
+          <span className="font-poppins text-xs tracking-[0.2em] uppercase mb-2">
+            Deslizar
+          </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
