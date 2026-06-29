@@ -7,7 +7,7 @@ const require = createRequire(import.meta.url);
 const express = require("express");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 function getCategoryLabel(slug: string): string {
   const map: Record<string, string> = {
