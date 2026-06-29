@@ -1,10 +1,7 @@
-import { createRequire } from "module";
 import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
-
-const require = createRequire(import.meta.url);
-const express = require("express");
+import express from "express";
 
 
 const app = express();
