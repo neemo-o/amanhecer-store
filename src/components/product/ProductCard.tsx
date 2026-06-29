@@ -20,7 +20,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
       transition={{ duration: 0.6 }}
       whileHover={{ y: -6 }}
       onClick={() => onClick(product)}
-      className="group bg-white border border-[#E8E0D0] hover:border-[#D9A441]/50 transition-all duration-500 rounded-sm shadow-xs overflow-hidden cursor-pointer flex flex-col h-full relative"
+      className="group bg-white border border-[#E8E0D0] hover:border-[#E8A020]/50 transition-all duration-500 rounded-sm shadow-xs overflow-hidden cursor-pointer flex flex-col h-full relative"
     >
       {/* Product Image Window */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100">
@@ -36,14 +36,14 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            className="w-12 h-12 rounded-full bg-black/85 border border-[#D9A441] flex items-center justify-center text-[#D9A441]"
+            className="w-12 h-12 rounded-full bg-black/85 border border-[#E8A020] flex items-center justify-center text-[#E8A020]"
           >
             <Search className="w-5 h-5 shrink-0" />
           </motion.div>
         </div>
 
         {/* Small Elegant Badge */}
-        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 border border-[#E8E0D0] text-[#D9A441] font-poppins text-[9px] tracking-widest uppercase font-semibold">
+        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 border border-[#E8E0D0] text-[#E8A020] font-poppins text-sm tracking-widest uppercase font-semibold">
           {product.categoryLabel}
         </div>
       </div>
@@ -51,10 +51,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
       {/* Info footer */}
       <div className="p-6 flex flex-col justify-between flex-grow bg-white">
         <div>
-          <p className="font-poppins text-[9px] tracking-widest text-[#D9A441] uppercase font-light mb-1">
-            {product.categoryLabel}
-          </p>
-          <h3 className="font-display text-base text-[#1A1A1A] tracking-wide font-normal group-hover:text-[#E7B95A] transition-colors duration-300">
+          <h3 className="font-display text-base text-[#1A1A1A] tracking-wide font-normal group-hover:text-[#F0A830] transition-colors duration-300">
             {product.name}
           </h3>
         </div>
@@ -63,7 +60,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           <span className="font-mono text-xs text-[#1A1A1A] font-medium font-semibold">
             {product.price || "Sob Consulta"}
           </span>
-          <span className="font-sans text-[10px] tracking-widest text-[#D9A441] group-hover:text-black uppercase font-medium transition-colors duration-300">
+          <span className="font-sans text-sm tracking-widest text-[#E8A020] group-hover:text-black uppercase font-medium transition-colors duration-300">
             Ver Detalhes →
           </span>
         </div>

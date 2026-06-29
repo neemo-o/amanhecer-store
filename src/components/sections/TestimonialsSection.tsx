@@ -38,20 +38,20 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-[#FAF8F3] py-24 md:py-32 border-b border-[#E8E0D0] relative overflow-hidden">
+    <section className="bg-[#FDF8F0] py-24 md:py-32 border-b border-[#E8E0D0] relative overflow-hidden">
       {/* Background decoration blur */}
-      <div className="absolute right-[5%] bottom-[10%] w-[350px] h-[350px] rounded-full bg-[#D9A441]/3 blur-[120px] pointer-events-none" />
+      <div className="absolute right-[5%] bottom-[10%] w-[350px] h-[350px] rounded-full bg-[#E8A020]/3 blur-[120px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         
         {/* Header Title */}
         <div className="text-center space-y-4 mb-20">
-          <span className="font-poppins text-xs tracking-[0.3em] uppercase text-[#D9A441] font-semibold flex items-center justify-center gap-2">
-            <span className="h-1 w-1 bg-[#D9A441] rounded-full" />
+          <span className="font-poppins text-xs tracking-[0.3em] uppercase text-[#E8A020] font-semibold flex items-center justify-center gap-2">
+            <span className="h-1 w-1 bg-[#E8A020] rounded-full" />
             Vozes de Nossos Clientes
           </span>
           <h2 className="font-display text-3xl sm:text-4xl text-[#1A1A1A] font-medium tracking-tight">
-            Relatos de <span className="font-serif italic font-light text-[#D9A441]">Fascínio</span>
+            Relatos de <span className="font-serif italic font-light text-[#E8A020]">Fascínio</span>
           </h2>
         </div>
 
@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
 
           {/* Client Avatar Circle */}
           <div className="relative shrink-0">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border border-[#D9A441]/30 p-1 bg-white">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border border-[#E8A020]/30 p-1 bg-white">
               <img
                 src={TESTIMONIALS[activeIdx].avatar}
                 alt={TESTIMONIALS[activeIdx].name}
@@ -73,14 +73,14 @@ export default function TestimonialsSection() {
               />
             </div>
             {/* Glowing gold dot background */}
-            <div className="absolute -bottom-2 -right-2 bg-[#D9A441] text-black rounded-full p-2 border-2 border-white">
+            <div className="absolute -bottom-2 -right-2 bg-[#E8A020] text-black rounded-full p-2 border-2 border-white">
               <Quote className="w-3.5 h-3.5 fill-current" />
             </div>
           </div>
 
           {/* Comment Space with Fade In-out Animation */}
           <div className="flex-grow space-y-6 text-center md:text-left">
-            <div className="flex justify-center md:justify-start space-x-1 text-[#D9A441]">
+            <div className="flex justify-center md:justify-start space-x-1 text-[#E8A020]">
               {[1, 2, 3, 4, 5].map((s) => (
                 <Star key={s} className="w-4 h-4 fill-current" />
               ))}
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
                   <h4 className="font-display text-lg text-[#1A1A1A] font-medium tracking-wide">
                     {TESTIMONIALS[activeIdx].name}
                   </h4>
-                  <p className="font-poppins text-[10px] tracking-widest text-[#D9A441] uppercase font-light mt-0.5">
+                  <p className="font-poppins text-sm tracking-widest text-[#E8A020] uppercase font-light mt-0.5">
                     {TESTIMONIALS[activeIdx].role}
                   </p>
                 </div>
@@ -115,14 +115,14 @@ export default function TestimonialsSection() {
         <div className="flex justify-center space-x-4 mt-8">
           <button
             onClick={handlePrev}
-            className="p-3 border border-[#E8E0D0] hover:border-[#E7B95A] rounded-full text-[#6B6B6B] hover:text-[#E7B95A] hover:bg-black/[0.01] transition-all duration-300"
+            className="p-3 border border-[#E8E0D0] hover:border-[#F0A830] rounded-full text-[#6B6B6B] hover:text-[#F0A830] hover:bg-black/[0.01] transition-all duration-300"
             aria-label="Depoimento Anterior"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={handleNext}
-            className="p-3 border border-[#E8E0D0] hover:border-[#E7B95A] rounded-full text-[#6B6B6B] hover:text-[#E7B95A] hover:bg-black/[0.01] transition-all duration-300"
+            className="p-3 border border-[#E8E0D0] hover:border-[#F0A830] rounded-full text-[#6B6B6B] hover:text-[#F0A830] hover:bg-black/[0.01] transition-all duration-300"
             aria-label="Próximo Depoimento"
           >
             <ChevronRight className="w-4 h-4" />

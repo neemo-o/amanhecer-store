@@ -83,7 +83,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
 
         {/* Gallery Overlay Indicators / Controls */}
-        <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-2.5 py-1 text-[10px] tracking-widest text-[#D9A441] uppercase rounded-sm border border-transparent">
+        <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-2.5 py-1 text-sm tracking-widest text-[#E8A020] uppercase rounded-sm border border-transparent">
           {activeIdx + 1} / {images.length}
         </div>
 
@@ -131,8 +131,8 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
               }}
               className={`relative aspect-[3/4] border overflow-hidden rounded-xs transition-all duration-300 cursor-pointer ${
                 activeIdx === idx
-                  ? "border-[#D9A441] ring-1 ring-[#D9A441]/50 scale-102"
-                  : "border-[#E8E0D0] hover:border-[#D9A441] hover:scale-[1.01]"
+                  ? "border-[#E8A020] ring-1 ring-[#E8A020]/50 scale-102"
+                  : "border-[#E8E0D0] hover:border-[#E8A020] hover:scale-[1.01]"
               }`}
             >
               <img

@@ -61,12 +61,12 @@ export default function ProductGrid({
           <div key={catKey} id={`categoria-${catKey}`} className="space-y-10 scroll-mt-28">
             {/* Elegant Category Header */}
             <div className="flex flex-col items-center text-center space-y-4">
-              <span className="font-poppins text-[10px] tracking-[0.4em] uppercase text-[#D9A441] font-semibold">
+              <span className="font-poppins text-sm tracking-[0.4em] uppercase text-[#E8A020] font-semibold">
                 Alta Orfebraria
               </span>
               <h3 className="font-display text-2xl sm:text-3xl text-[#1A1A1A] font-medium tracking-widest relative pb-2 uppercase">
                 {group.label}
-                <span className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-[#D9A441]/50 to-transparent" />
+                <span className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-[#E8A020]/50 to-transparent" />
               </h3>
               <p className="font-serif italic text-xs text-[#6B6B6B] max-w-md">
                 Coleção exclusiva de {group.label.toLowerCase()} trabalhados em metais nobres e gemas selecionadas.

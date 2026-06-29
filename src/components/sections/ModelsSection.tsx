@@ -75,15 +75,15 @@ export default function ModelsSection() {
   }, []);
 
   return (
-    <section className="bg-[#FAF8F3] py-24 overflow-hidden border-b border-[#E8E0D0] relative">
+    <section className="bg-[#FDF8F0] py-24 overflow-hidden border-b border-[#E8E0D0] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 relative z-10">
         <div className="space-y-4">
-          <span className="font-poppins text-xs tracking-[0.3em] uppercase text-[#D9A441] font-semibold flex items-center gap-2">
-            <Camera className="w-4 h-4 text-[#D9A441]" />
+          <span className="font-poppins text-xs tracking-[0.3em] uppercase text-[#E8A020] font-semibold flex items-center gap-2">
+            <Camera className="w-4 h-4 text-[#E8A020]" />
             Campanha Haute Couture
           </span>
           <h2 className="font-display text-3xl sm:text-4xl text-[#1A1A1A] font-medium tracking-tight">
-            Editorial <span className="font-serif italic font-light text-[#D9A441]">Amanhecer</span>
+            Editorial <span className="font-serif italic font-light text-[#E8A020]">Amanhecer</span>
           </h2>
           <p className="font-serif italic text-xs sm:text-sm text-[#6B6B6B] max-w-sm">
             Um ensaio fotográfico que capta a simbiose perfeita entre a silhueta humana e o resplendor de nossas joias.
@@ -91,8 +91,8 @@ export default function ModelsSection() {
         </div>
 
         {/* Swipe prompt hint icon */}
-        <div className="inline-flex items-center space-x-2 text-[#6B6B6B] font-poppins text-[10px] tracking-[0.2em] uppercase select-none pb-1">
-          <ArrowLeftRight className="w-4 h-4 text-[#D9A441]" />
+        <div className="inline-flex items-center space-x-2 text-[#6B6B6B] font-poppins text-xs tracking-[0.2em] uppercase select-none pb-1">
+          <ArrowLeftRight className="w-4 h-4 text-[#E8A020]" />
           <span>Arraste ou sobreponha</span>
         </div>
       </div>
@@ -120,20 +120,20 @@ export default function ModelsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
             {/* Inner tiny overlay bounding frame */}
-            <div className="absolute inset-4 border border-[#D9A441]/0 group-hover:border-[#D9A441]/20 transition-all duration-700 pointer-events-none" />
+            <div className="absolute inset-4 border border-[#E8A020]/0 group-hover:border-[#E8A020]/20 transition-all duration-700 pointer-events-none" />
 
             {/* Float details text on Hover */}
             <div className="absolute inset-x-6 bottom-6 flex flex-col justify-end text-left transition-all duration-500 group-hover:translate-y-[-4px]">
-              <span className="font-poppins text-[9px] tracking-[0.3em] text-[#D9A441] uppercase font-light mb-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
+              <span className="font-poppins text-xs tracking-[0.3em] text-[#E8A020] uppercase font-light mb-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
                 {item.collection}
               </span>
               <h3 className="font-display text-lg sm:text-xl text-white font-medium tracking-wide">
                 {item.caption}
               </h3>
               
-              <div className="overflow-hidden mt-3 h-0 group-hover:h-5.5 transition-all duration-500 flex items-center space-x-2 text-[#D9A441]">
+              <div className="overflow-hidden mt-3 h-0 group-hover:h-5.5 transition-all duration-500 flex items-center space-x-2 text-[#E8A020]">
                 <Eye className="w-4 h-4 shrink-0" />
-                <span className="font-poppins text-[9px] tracking-[0.2em] uppercase font-semibold">
+                <span className="font-poppins text-xs tracking-[0.2em] uppercase font-semibold">
                   Ver Coleção
                 </span>
               </div>

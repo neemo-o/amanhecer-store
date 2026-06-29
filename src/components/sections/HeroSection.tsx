@@ -88,8 +88,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-flex items-center space-x-2.5 mb-6"
           >
-            <span className="h-[1px] w-8 bg-[#D9A441]" />
-            <span className="font-poppins text-[10px] md:text-xs tracking-[0.4em] text-[#D9A441] uppercase font-semibold">
+            <span className="h-[1px] w-8 bg-[#E8A020]" />
+            <span className="font-poppins text-xs md:text-xs tracking-[0.4em] text-[#E8A020] uppercase font-semibold">
               Coleção Haute Joaillerie
             </span>
           </motion.div>
@@ -128,13 +128,13 @@ export default function HeroSection() {
           >
             <a
               href="#categorias"
-              className="px-8 py-4 bg-[#D9A441] hover:bg-[#E7B95A] text-black font-semibold text-xs tracking-widest uppercase transition-all duration-300 rounded-sm hover:-translate-y-0.5 text-center"
+              className="px-8 py-4 bg-[#E8A020] hover:bg-[#F0A830] text-black font-semibold text-sm tracking-widest uppercase transition-all duration-300 rounded-sm hover:-translate-y-0.5 text-center"
             >
               Explorar Coleção
             </a>
             <a
               href="#sobre"
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-white/30 font-medium text-xs tracking-widest uppercase transition-all duration-300 rounded-sm text-center"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/15 hover:border-white/30 font-medium text-sm tracking-widest uppercase transition-all duration-300 rounded-sm text-center"
             >
               Nossa História
             </a>
@@ -157,7 +157,7 @@ export default function HeroSection() {
             >
               <div
                 className={`h-1 rounded-full transition-all duration-500 ease-out ${
-                  currentIndex === idx ? "w-8 bg-[#D9A441]" : "w-2 bg-white/30 group-hover:bg-white/60"
+                  currentIndex === idx ? "w-8 bg-[#E8A020]" : "w-2 bg-white/30 group-hover:bg-white/60"
                 }`}
               />
             </button>
@@ -185,12 +185,12 @@ export default function HeroSection() {
       {/* Decorative vertical down signifier */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-10 z-20 hidden md:block">
         <a href="#sobre" className="flex flex-col items-center text-white/40 hover:text-white transition-colors duration-300">
-          <span className="font-poppins text-[9px] tracking-[0.2em] uppercase mb-2">Deslizar</span>
+          <span className="font-poppins text-xs tracking-[0.2em] uppercase mb-2">Deslizar</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           >
-            <ArrowDown className="w-4 h-4 text-[#D9A441]" />
+            <ArrowDown className="w-4 h-4 text-[#E8A020]" />
           </motion.div>
         </a>
       </div>

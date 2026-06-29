@@ -1,10 +1,10 @@
-import { Instagram, MessageCircle, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#F3EBDD] border-t border-[#E8E0D0] pt-16 pb-8 text-[#6B6B6B]">
+    <footer className="bg-[#FDF8F0] border-t border-[#E8E0D0] pt-16 pb-8 text-[#6B6B6B]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
         {/* Brand Col */}
         <div className="space-y-6">
@@ -12,7 +12,7 @@ export default function Footer() {
             <span className="font-display text-2xl font-bold tracking-[0.2em] text-[#1A1A1A]">
               AMANHECER
             </span>
-            <span className="font-poppins text-xs tracking-[0.4em] text-[#D9A441] -mt-1">
+            <span className="font-poppins text-sm tracking-[0.4em] text-[#E8A020] -mt-1">
               STORE
             </span>
           </div>
@@ -21,36 +21,29 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4">
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/amanhecerstore"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-[#6B6B6B] hover:text-[#E7B95A] hover:bg-[#D9A441]/10 transition-colors duration-300"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-[#6B6B6B] hover:text-[#F0A830] hover:bg-[#E8A020]/10 transition-colors duration-300"
               aria-label="Instagram"
             >
               <Instagram className="w-4.5 h-4.5" />
             </a>
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5500000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-[#6B6B6B] hover:text-[#E7B95A] hover:bg-[#D9A441]/10 transition-colors duration-300"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-[#6B6B6B] hover:text-[#F0A830] hover:bg-[#E8A020]/10 transition-colors duration-300"
               aria-label="WhatsApp"
             >
               <MessageCircle className="w-4.5 h-4.5" />
-            </a>
-            <a
-              href="mailto:contato@amanhecerstore.com.br"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-black/5 text-[#6B6B6B] hover:text-[#E7B95A] hover:bg-[#D9A441]/10 transition-colors duration-300"
-              aria-label="E-mail"
-            >
-              <Mail className="w-4.5 h-4.5" />
             </a>
           </div>
         </div>
 
         {/* Navigation Links Col */}
         <div>
-          <h3 className="font-sans text-xs tracking-widest text-[#D9A441] uppercase font-semibold mb-6">
+          <h3 className="font-sans text-sm tracking-widest text-[#E8A020] uppercase font-semibold mb-6">
             Navegação
           </h3>
           <ul className="space-y-4 text-sm font-light">
@@ -77,9 +70,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Assistance / Care Col */}
+        {/* Services & Care Col */}
         <div>
-          <h3 className="font-sans text-xs tracking-widest text-[#D9A441] uppercase font-semibold mb-6">
+          <h3 className="font-sans text-sm tracking-widest text-[#E8A020] uppercase font-semibold mb-6">
             Serviços &amp; Cuidados
           </h3>
           <ul className="space-y-4 text-sm font-light">
@@ -108,21 +101,17 @@ export default function Footer() {
 
         {/* Direct Contact Col */}
         <div className="space-y-4">
-          <h3 className="font-sans text-xs tracking-widest text-[#D9A441] uppercase font-semibold mb-6">
+          <h3 className="font-sans text-sm tracking-widest text-[#E8A020] uppercase font-semibold mb-6">
             Contato
           </h3>
           <div className="space-y-4 text-sm font-light">
-            <div className="flex items-start space-x-3">
-              <MapPin className="w-4.5 h-4.5 text-[#D9A441] shrink-0 mt-0.5" />
-              <span>Av. Brg. Faria Lima, 3477 - Itaim Bibi, São Paulo - SP, 04538-133</span>
+            <div className="flex items-center space-x-3">
+              <Instagram className="w-4.5 h-4.5 text-[#E8A020] shrink-0" />
+              <a href="https://instagram.com/amanhecerstore" target="_blank" rel="noopener noreferrer" className="hover:text-[#1A1A1A] transition-colors">@amanhecerstore</a>
             </div>
             <div className="flex items-center space-x-3">
-              <Phone className="w-4.5 h-4.5 text-[#D9A441] shrink-0" />
-              <span>+55 (11) 99999-9999</span>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Mail className="w-4.5 h-4.5 text-[#D9A441] shrink-0" />
-              <span>contato@amanhecerstore.com</span>
+              <MessageCircle className="w-4.5 h-4.5 text-[#E8A020] shrink-0" />
+              <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" className="hover:text-[#1A1A1A] transition-colors">WhatsApp</a>
             </div>
           </div>
         </div>

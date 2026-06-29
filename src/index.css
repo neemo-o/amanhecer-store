@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #FAF8F3;
+    background-color: #FDF8F0;
     color: #1A1A1A;
     font-family: var(--font-sans);
   }
@@ -24,12 +24,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8F3;
+  background: #FDF8F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D9A441;
+  background: #E8A020;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E7B95A;
+  background: #F0A830;
 }

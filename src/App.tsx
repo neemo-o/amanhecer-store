@@ -23,7 +23,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2] text-[#1A1A1A] flex flex-col justify-between overflow-x-hidden relativeSelection selection:bg-[#D4AF37] selection:text-black">
+    <div className="min-h-screen bg-[#FDF8F0] text-[#1A1A1A] flex flex-col justify-between overflow-x-hidden relativeSelection selection:bg-[#D4AF37] selection:text-black">
       {/* Dynamic luxury layout grids background lines */}
       <div className="absolute inset-0 z-[1] pointer-events-none opacity-[0.05]">
         <div className="max-w-7xl mx-auto h-full px-6 md:px-12 grid grid-cols-4 gap-6">
@@ -40,9 +40,9 @@ export default function App() {
         <HeroSection />
         <BrandSection />
         <CategoriesSection onProductSelect={handleProductSelect} />
-        <FeaturedCollection />
-        <ModelsSection />
-        <TestimonialsSection />
+        <div className="hidden">{/* hidden */}<FeaturedCollection /></div>
+        <div className="hidden">{/* hidden */}<ModelsSection /></div>
+        <div className="hidden">{/* hidden */}<TestimonialsSection /></div>
         <ContactSection />
       </main>
 

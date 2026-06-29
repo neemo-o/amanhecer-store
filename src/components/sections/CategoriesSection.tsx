@@ -113,9 +113,9 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
   ];
 
   return (
-    <section id="categorias" className="relative bg-[#FAF8F3] py-24 md:py-32 scroll-mt-20">
+    <section id="categorias" className="relative bg-[#FDF8F0] py-24 md:py-32 scroll-mt-20">
       {/* Decorative vertical coordinates overlay */}
-      <div className="absolute left-[5%] top-1/4 h-72 w-[1px] bg-gradient-to-b from-[#D9A441]/20 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute left-[5%] top-1/4 h-72 w-[1px] bg-gradient-to-b from-[#E8A020]/20 via-transparent to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header Introduction */}
@@ -124,10 +124,10 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 px-3 py-1 bg-[#D9A441]/10 border border-[#E8E0D0] rounded-full"
+            className="inline-flex items-center space-x-2 px-3 py-1 bg-[#E8A020]/10 border border-[#E8E0D0] rounded-full"
           >
-            <ShoppingBag className="w-3.5 h-3.5 text-[#D9A441]" />
-            <span className="font-poppins text-[10px] tracking-widest text-[#D9A441] uppercase font-semibold">
+            <ShoppingBag className="w-3.5 h-3.5 text-[#E8A020]" />
+            <span className="font-poppins text-sm tracking-widest text-[#E8A020] uppercase font-semibold">
               Catálogo de Peças Únicas
             </span>
           </motion.div>
@@ -139,7 +139,7 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
             transition={{ duration: 0.6 }}
             className="font-display text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] tracking-tight leading-tight"
           >
-            Nossas <span className="font-serif italic font-light text-[#D9A441]">Coleções</span>
+            Nossas <span className="font-serif italic font-light text-[#E8A020]">Coleções</span>
           </motion.h2>
           
           <motion.p
@@ -161,7 +161,7 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
               <button
                 key={tab.value}
                 onClick={() => setSelectedFilter(tab.value)}
-                className={`relative px-4 sm:px-6 py-2.5 text-[11px] sm:text-xs tracking-widest uppercase rounded-sm transition-all duration-300 select-none ${
+                className={`relative px-4 sm:px-6 py-2.5 text-xs sm:text-sm tracking-widest uppercase rounded-sm transition-all duration-300 select-none ${
                     isActive
                       ? "text-black font-semibold"
                       : "text-[#6B6B6B] hover:text-[#1A1A1A]"
@@ -171,7 +171,7 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
                 {isActive && (
                   <motion.div
                     layoutId="activeFilterTab"
-                    className="absolute inset-0 bg-[#D9A441] rounded-sm -z-0"
+                    className="absolute inset-0 bg-[#E8A020] rounded-sm -z-0"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}

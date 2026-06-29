@@ -46,9 +46,9 @@ export default function BrandSection() {
   };
 
   return (
-    <section id="sobre" className="relative bg-[#FAF8F3] py-24 md:py-36 overflow-hidden">
+    <section id="sobre" className="relative bg-[#FDF8F0] py-24 md:py-36 overflow-hidden">
       {/* Abstract light gold glow backgound decor */}
-      <div className="absolute right-[10%] top-[20%] w-[350px] h-[350px] rounded-full bg-[#D9A441]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute right-[10%] top-[20%] w-[350px] h-[350px] rounded-full bg-[#E8A020]/5 blur-[120px] pointer-events-none" />
       <div className="absolute left-[5%] bottom-[10%] w-[400px] h-[400px] rounded-full bg-black/[0.02] blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -62,13 +62,13 @@ export default function BrandSection() {
               transition={{ duration: 0.8 }}
               className="space-y-4"
             >
-              <span className="font-poppins text-xs tracking-[0.3em] uppercase text-[#D9A441] font-semibold flex items-center gap-2">
-                <span className="h-1 w-1 bg-[#D9A441] rounded-full inline-block" />
+              <span className="font-poppins text-sm tracking-[0.3em] uppercase text-[#E8A020] font-semibold flex items-center gap-2">
+                <span className="h-1 w-1 bg-[#E8A020] rounded-full inline-block" />
                 A Casa Amanhecer
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[#1A1A1A] tracking-tight leading-tight">
                 O brilho de um <br />
-                <span className="font-serif italic font-light text-[#D9A441]">novo amanhecer.</span>
+                <span className="font-serif italic font-light text-[#E8A020]">novo amanhecer.</span>
               </h2>
             </motion.div>
           </div>
@@ -108,20 +108,20 @@ export default function BrandSection() {
               key={pillar.title}
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="p-8 bg-white border border-[#E8E0D0] hover:border-[#D9A441]/50 rounded-sm shadow-xs transition-all duration-300 group flex flex-col justify-between"
+              className="p-8 bg-white border border-[#E8E0D0] hover:border-[#E8A020]/50 rounded-sm shadow-xs transition-all duration-300 group flex flex-col justify-between"
             >
               <div className="space-y-6">
-                <div className="w-12 h-12 flex items-center justify-center rounded-xs bg-[#D9A441]/5 text-[#D9A441] group-hover:bg-[#E7B95A] group-hover:text-white transition-colors duration-500">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xs bg-[#E8A020]/5 text-[#E8A020] group-hover:bg-[#F0A830] group-hover:text-white transition-colors duration-500">
                   <pillar.icon className="w-5.5 h-5.5 stroke-[1.25]" />
                 </div>
                 <h3 className="font-display text-lg text-[#1A1A1A] font-medium tracking-wide">
                   {pillar.title}
                 </h3>
-                <p className="font-sans text-xs text-[#6B6B6B] font-light leading-relaxed">
+                <p className="font-sans text-sm text-[#6B6B6B] font-light leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
-              <div className="h-0.5 w-full bg-[#D9A441]/10 group-hover:bg-[#E7B95A] transition-all duration-500 mt-8 scale-x-0 group-hover:scale-x-100 origin-left" />
+              <div className="h-0.5 w-full bg-[#E8A020]/10 group-hover:bg-[#F0A830] transition-all duration-500 mt-8 scale-x-0 group-hover:scale-x-100 origin-left" />
             </motion.div>
           ))}
         </motion.div>

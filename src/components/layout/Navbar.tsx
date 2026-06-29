@@ -20,7 +20,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Início", href: "#inicio" },
-    { name: "Coleções", href: "#colecoes" },
+
     { name: "Categorias", href: "#categorias" },
     { name: "Sobre", href: "#sobre" },
     { name: "Contato", href: "#contato" },
@@ -34,17 +34,17 @@ export default function Navbar() {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#E8E0D0] py-4 shadow-sm"
+            ? "bg-[#FDF8F0]/90 backdrop-blur-md border-b border-[#E8E0D0] py-4 shadow-sm"
             : "bg-transparent py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo Brand */}
           <a href="#inicio" className="group flex flex-col items-center select-none">
-            <span className={`font-display text-lg md:text-2xl font-bold tracking-[0.25em] transition-colors duration-300 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} group-hover:text-[#D9A441]`}>
+            <span className={`font-display text-lg md:text-2xl font-bold tracking-[0.25em] transition-colors duration-300 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} group-hover:text-[#E8A020]`}>
               AMANHECER
             </span>
-            <span className="font-poppins text-[8px] md:text-[9px] tracking-[0.4em] text-[#D9A441] -mt-1 group-hover:text-[#1A1A1A] transition-colors duration-300">
+            <span className="font-poppins text-[10px] md:text-xs tracking-[0.4em] text-[#E8A020] -mt-1 group-hover:text-[#1A1A1A] transition-colors duration-300">
               STORE
             </span>
           </a>
@@ -55,12 +55,12 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`font-sans text-sm tracking-widest transition-colors duration-300 relative py-1 group uppercase text-[11px] ${
-                  isScrolled ? "text-[#1A1A1A]/80 hover:text-[#D9A441]" : "text-neutral-300 hover:text-[#D9A441]"
+                className={`font-sans text-sm tracking-widest transition-colors duration-300 relative py-1 group uppercase text-xs ${
+                  isScrolled ? "text-[#1A1A1A]/80 hover:text-[#E8A020]" : "text-neutral-300 hover:text-[#E8A020]"
                 }`}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D9A441] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left" />
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E8A020] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left" />
               </a>
             ))}
           </nav>
@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="#categorias"
-              className={`px-5 py-2.5 bg-transparent border border-[#D9A441]/40 hover:border-[#E7B95A] text-[#D9A441] hover:bg-[#D9A441] hover:text-white text-xs uppercase tracking-widest font-medium transition-all duration-300 rounded-sm ${
+              className={`px-5 py-2.5 bg-transparent border border-[#E8A020]/40 hover:border-[#F0A830] text-[#E8A020] hover:bg-[#E8A020] hover:text-white text-xs uppercase tracking-widest font-medium transition-all duration-300 rounded-sm ${
                 isScrolled ? "hover:text-[#1A1A1A]" : ""
               }`}
             >
@@ -80,7 +80,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className={`md:hidden transition-colors p-1 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} hover:text-[#D9A441]`}
+            className={`md:hidden transition-colors p-1 ${isScrolled ? "text-[#1A1A1A]" : "text-white"} hover:text-[#E8A020]`}
             aria-label="Abrir Menu"
           >
             <Menu className="w-6 h-6 stroke-[1.5]" />
@@ -107,7 +107,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 180 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-[320px] bg-[#FAF8F3] border-l border-[#E8E0D0] px-8 py-10 flex flex-col justify-between"
+              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-[320px] bg-[#FDF8F0] border-l border-[#E8E0D0] px-8 py-10 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-6">
@@ -115,13 +115,13 @@ export default function Navbar() {
                     <span className="font-display text-lg font-bold tracking-[0.2em] text-[#1A1A1A]">
                       AMANHECER
                     </span>
-                    <span className="font-poppins text-[8px] tracking-[0.4em] text-[#D9A441]">
+                    <span className="font-poppins text-[10px] tracking-[0.4em] text-[#E8A020]">
                       STORE
                     </span>
                   </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-neutral-500 hover:text-[#D9A441] transition-colors p-1"
+                    className="text-neutral-500 hover:text-[#E8A020] transition-colors p-1"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -137,10 +137,10 @@ export default function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="font-sans text-base text-neutral-800 hover:text-[#D9A441] transition-colors duration-200 tracking-widest uppercase font-light text-[13px] flex items-center justify-between group"
+                      className="font-sans text-base text-neutral-800 hover:text-[#E8A020] transition-colors duration-200 tracking-widest uppercase font-light text-[13px] flex items-center justify-between group"
                     >
                       {link.name}
-                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#D9A441]" />
+                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#E8A020]" />
                     </motion.a>
                   ))}
                 </nav>
@@ -154,7 +154,7 @@ export default function Navbar() {
                 <a
                   href="#contato"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full block text-center py-3 bg-[#D9A441] hover:bg-[#E7B95A] text-white text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-sm"
+                  className="w-full block text-center py-3 bg-[#E8A020] hover:bg-[#F0A830] text-white text-xs uppercase tracking-widest font-semibold transition-all duration-300 rounded-sm"
                 >
                   Falar no WhatsApp
                 </a>
