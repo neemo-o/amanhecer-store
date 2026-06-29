@@ -7,20 +7,39 @@ interface ProductGridProps {
   products: Product[];
   onProductSelect: (product: Product) => void;
   selectedCategoryFilter: string;
+  emptyMessage?: string;
 }
 
 export default function ProductGrid({
   products,
   onProductSelect,
   selectedCategoryFilter,
+  emptyMessage = "",
 }: ProductGridProps) {
+  // If there are no products and an empty message is provided, show the empty state
+  if (products.length === 0 && emptyMessage) {
+    return (
+      <div className="py-24 text-center rounded-3xl border border-dashed border-[#E8E0D0] bg-white/80">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#E8E0D0] mb-4 text-[#6B6B6B]">
+          <Sparkles className="w-5 h-5 animate-pulse" />
+        </div>
+        <p className="font-serif italic text-base text-[#6B6B6B] max-w-md mx-auto">
+          {emptyMessage}
+        </p>
+      </div>
+    );
+  }
+
   // Group products by category
   const groupedProducts = useMemo(() => {
     const groups: Record<string, { label: string; items: Product[] }> = {};
-    
+
     products.forEach((prod) => {
       // If we have a filter and it doesn't match, skip
-      if (selectedCategoryFilter !== "todos" && prod.category !== selectedCategoryFilter) {
+      if (
+        selectedCategoryFilter !== "todos" &&
+        prod.category !== selectedCategoryFilter
+      ) {
         return;
       }
 
@@ -68,7 +87,7 @@ export default function ProductGrid({
               <span className="font-poppins text-sm tracking-[0.4em] uppercase text-[#E8A020] font-semibold">
                 Estilo & Sofisticação{" "}
               </span>
-              <h3 className="font-display text-2xl sm:text-3xl text-[#1A1A1A] font-medium tracking-widest relative pb-2 uppercase">
+              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-[#1A1A1A] font-medium tracking-widest relative pb-2 uppercase">
                 {group.label}
                 <span className="absolute bottom-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-[#E8A020]/50 to-transparent" />
               </h3>

@@ -1,17 +1,22 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion } from "motion/react";
 import { Product } from "../../types";
 import ProductGrid from "../product/ProductGrid";
-import { Sparkles, ShoppingBag, Filter } from "lucide-react";
+import { Sparkles, ShoppingBag } from "lucide-react";
 
 interface CategoriesSectionProps {
   onProductSelect: (product: Product) => void;
 }
 
-export default function CategoriesSection({ onProductSelect }: CategoriesSectionProps) {
+export default function CategoriesSection({
+  onProductSelect,
+}: CategoriesSectionProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState("todos");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const productListRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     async function loadProducts() {
@@ -22,7 +27,6 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
         setProducts(data);
       } catch (err) {
         console.error("Failed to fetch products API:", err);
-        // No local seed – show empty list or error state
         setProducts([]);
       } finally {
         setLoading(false);
@@ -31,9 +35,53 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
     loadProducts();
   }, []);
 
+  useEffect(() => {
+    const smallScreen = window.matchMedia("(max-width: 768px)");
+    const tabletScreen = window.matchMedia(
+      "(min-width: 769px) and (max-width: 1024px)",
+    );
+
+    const updateItemsPerPage = () => {
+      if (smallScreen.matches) {
+        setItemsPerPage(4);
+      } else if (tabletScreen.matches) {
+        setItemsPerPage(6);
+      } else {
+        setItemsPerPage(8);
+      }
+    };
+
+    updateItemsPerPage();
+    smallScreen.addEventListener("change", updateItemsPerPage);
+    tabletScreen.addEventListener("change", updateItemsPerPage);
+    return () => {
+      smallScreen.removeEventListener("change", updateItemsPerPage);
+      tabletScreen.removeEventListener("change", updateItemsPerPage);
+    };
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilter, itemsPerPage]);
+
+  useEffect(() => {
+    if (productListRef.current) {
+      productListRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [currentPage]);
+
   // Dynamically build filter tabs based on categories present in the fetched products
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      if (selectedFilter === "todos") return true;
+      return product.category === selectedFilter;
+    });
+  }, [products, selectedFilter]);
+
   const filterTabs = useMemo(() => {
-    // Always include the "todos" tab
     const baseTabs = [{ label: "Todos os acessórios", value: "todos" }];
     const categoryMap: Record<string, string> = {
       aneis: "Anéis",
@@ -42,7 +90,6 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
       pulseiras: "Pulseiras",
       relogios: "Relógios",
     };
-    // Determine which categories exist in the product list
     const presentCategories = new Set(products.map((p) => p.category));
     for (const [cat, label] of Object.entries(categoryMap)) {
       if (presentCategories.has(cat)) {
@@ -52,10 +99,19 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
     return baseTabs;
   }, [products]);
 
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredProducts.length / itemsPerPage),
+  );
+  const paginatedProducts = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  );
+
   return (
     <section
       id="categorias"
-      className="relative bg-[#FDF8F0] py-24 md:py-32 scroll-mt-20"
+      className="relative bg-[#FDF8F0] py-20 md:py-28 scroll-mt-20"
     >
       {/* Decorative vertical coordinates overlay */}
       <div className="absolute left-[5%] top-1/4 h-72 w-[1px] bg-gradient-to-b from-[#E8A020]/20 via-transparent to-transparent pointer-events-none" />
@@ -130,24 +186,66 @@ export default function CategoriesSection({ onProductSelect }: CategoriesSection
 
         {/* Dynamic Products Catalog Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[1, 2, 3, 4].map((id) => (
-              <div key={id} className="animate-pulse space-y-4">
-                <div className="aspect-[3/4] bg-neutral-900 border border-white/5 rounded-sm" />
-                <div className="space-y-2">
+              <div
+                key={id}
+                className="animate-pulse space-y-4 rounded-3xl overflow-hidden bg-white/80 p-4 shadow-sm border border-[#E8E0D0]"
+              >
+                <div className="aspect-[3/4] bg-neutral-900 rounded-xl" />
+                <div className="space-y-2 py-3">
                   <div className="h-2.5 bg-neutral-900 rounded-sm w-1/4" />
                   <div className="h-4 bg-neutral-900 rounded-sm w-3/4" />
-                  <div className="h-3.5 bg-neutral-900 rounded-sm w-1/3 pt-2" />
+                  <div className="h-3.5 bg-neutral-900 rounded-sm w-1/3" />
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <ProductGrid
-            products={products}
-            onProductSelect={onProductSelect}
-            selectedCategoryFilter={selectedFilter}
-          />
+          <>
+            <div ref={productListRef} className="space-y-10">
+              <ProductGrid
+                products={paginatedProducts}
+                onProductSelect={onProductSelect}
+                selectedCategoryFilter={selectedFilter}
+                emptyMessage={
+                  filteredProducts.length === 0
+                    ? "Nenhum produto corresponde ao filtro selecionado."
+                    : ""
+                }
+              />
+            </div>
+
+            <div className="mt-10 flex flex-col gap-3 items-center justify-between sm:flex-row sm:gap-0 border-t border-[#E8E0D0]/70 pt-8">
+              <div className="text-center sm:text-left text-sm sm:text-base text-[#6B6B6B]">
+                Mostrando {paginatedProducts.length} de{" "}
+                {filteredProducts.length} produtos
+                {filteredProducts.length > 0 &&
+                  ` — página ${currentPage} de ${totalPages}`}
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <button
+                  onClick={() =>
+                    setCurrentPage((page) => Math.max(1, page - 1))
+                  }
+                  disabled={currentPage === 1}
+                  className="inline-flex items-center justify-center rounded-full border border-[#E8E0D0] bg-white px-4 py-2 text-sm font-medium text-[#1A1A1A] transition hover:border-[#E8A020] hover:text-[#E8A020] disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Anterior
+                </button>
+                <button
+                  onClick={() =>
+                    setCurrentPage((page) => Math.min(totalPages, page + 1))
+                  }
+                  disabled={currentPage === totalPages}
+                  className="inline-flex items-center justify-center rounded-full border border-[#E8E0D0] bg-white px-4 py-2 text-sm font-medium text-[#1A1A1A] transition hover:border-[#E8A020] hover:text-[#E8A020] disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Próxima
+                </button>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </section>

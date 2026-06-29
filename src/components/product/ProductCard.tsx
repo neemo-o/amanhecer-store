@@ -10,7 +10,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onClick }: ProductCardProps) {
   // Use the first image or a static placeholder
-  const mainImage = product.images[0] || "https://picsum.photos/seed/jewelry/500/600";
+  const mainImage =
+    product.images[0] || "https://picsum.photos/seed/jewelry/500/600";
 
   return (
     <motion.div
@@ -20,7 +21,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
       transition={{ duration: 0.6 }}
       whileHover={{ y: -6 }}
       onClick={() => onClick(product)}
-      className="group bg-white border border-[#E8E0D0] hover:border-[#E8A020]/50 transition-all duration-500 rounded-sm shadow-xs overflow-hidden cursor-pointer flex flex-col h-full relative"
+      className="group bg-white border border-[#E8E0D0] hover:border-[#E8A020]/50 transition-all duration-500 rounded-[1.5rem] shadow-sm hover:shadow-lg overflow-hidden cursor-pointer flex flex-col h-full relative"
     >
       {/* Product Image Window */}
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100">
@@ -30,7 +31,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        
+
         {/* Elegant hovering glass overlay with search/detail icon */}
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-400 flex items-center justify-center">
           <motion.div
@@ -55,7 +56,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             {product.name}
           </h3>
         </div>
-        
+
         <div className="mt-4 pt-4 border-t border-[#E8E0D0] flex items-center justify-between">
           <span className="font-mono text-xs text-[#1A1A1A] font-medium font-semibold">
             {product.price || "Sob Consulta"}
