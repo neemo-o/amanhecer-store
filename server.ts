@@ -6,8 +6,10 @@ import { createServer as createViteServer } from "vite";
 const require = createRequire(import.meta.url);
 const express = require("express");
 
+
 const app = express();
-const PORT = process.env.PORT;
+
+const PORT = Number(process.env.PORT) || 3000;
 
 function getCategoryLabel(slug: string): string {
   const map: Record<string, string> = {
@@ -111,6 +113,9 @@ app.get("/api/produtos", (_req, res) => {
   res.redirect("/api/products");
 });
 
+const publicPath = path.join(process.cwd(), "public");
+
+
 async function setupServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
@@ -119,7 +124,9 @@ async function setupServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), "dist");
+    const distPath = path.join(process.cwd(), 
+    "dist");
+    app.use(express.static(publicPath));
     app.use(express.static(distPath));
     app.get("*", (_req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
