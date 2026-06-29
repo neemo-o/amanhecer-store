@@ -98,7 +98,7 @@ export default function HeroSection() {
           >
             <span className="h-[1px] w-8 bg-[#E8A020]" />
             <span className="font-poppins text-xs md:text-xs tracking-[0.4em] text-[#E8A020] uppercase font-semibold">
-              Brilhe em Todos os Momentos
+              Autoestima que se renova a cada amanhã
             </span>
           </motion.div>
 

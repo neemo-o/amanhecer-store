@@ -17,9 +17,9 @@ export default function BrandSection() {
     },
     {
       icon: Shield,
-      title: "Qualidade e Confiança",
+      title: "Melhor Custo-Benefício",
       description:
-        "Trabalhamos com produtos cuidadosamente escolhidos, priorizando qualidade, acabamento e beleza para oferecer a melhor experiência.",
+        "Selecionamos produtos com excelente equilíbrio entre qualidade, preço e durabilidade, garantindo a melhor escolha para o seu investimento.",
     },
     {
       icon: Award,
